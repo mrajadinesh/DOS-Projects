@@ -1,0 +1,207 @@
+COP5615 Distributed Operating System Principles - Fall 2014
+------------------------------------------------------------
+
+
+Group Member 1:
+---------------
+Name: Vineeta Chelamkuri
+UFID: 05149111
+Email ID: vchelamkuri@ufl.edu
+
+Group Member 2:
+---------------
+Name: RajaDinesh Kumar Murugesan
+UFID: 41181658
+Email ID: mrajadinesh@ufl.edu
+
+
+Project 4.1 - Twitter Simulator Report
+--------------------------------------
+
+
+Overview:
+---------
+
+Functionalities implemented in the Server:
+------------------------------------------
+Twitter server gets "Number of Users per Client" and "Number of Clients" as input. It initializes data structures for holding the Tweets of all users and for holding the Hashtagged Tweets. It also creates a lists of 100 randomly generated hashtags. It handles GET requests from clients for getting the tweets for a particular user and for getting the tweets for a particular hashtag. It handles POST requests from clients for posting normal tweets, @mentions tweets, hashtagged tweets and retweets.
+
+Functionalities implemented in the Client:
+------------------------------------------
+Twitter Client gets "Server IP Address" and "Client Number" as input. It initializes data structure for holding the users and their followers. It gets the list of hashtags that are maintained by the server. Once it gets initialized with all the required information, it starts posting tweets and getting tweets from server for random users (in a loop with random delays). Peaks are simulated by making a set of users to post hashtagged tweets and to post retweets.
+
+
+Observations:
+-------------
+We were able to run both the server and client without any problem for 10 minutes on lin116-xx machines in the CISE Computer lab. Our observations are consolidated below:
+
+1) With 1 Server and 1 Client:
+------------------------------
+Number of POST requests per second is around 10100
+Number of POST requests per second during peaks is around 10700
+Number of GET requests per seconds is around 9500
+Total number of POST requests received by server in 10 minutes is 6246795
+Total number of GET requests received by server in 10 minutes is 5802162
+
+2) With 1 Server and 2 Clients:
+-------------------------------
+Number of POST requests per second is around 20000
+Number of POST requests per second during peaks is around 21000
+Number of GET requests per seconds is around 19000
+Total number of POST requests received by server in 10 minutes is 11956003
+Total number of GET requests received by server in 10 minutes is 11111148
+
+
+Readings:
+---------
+
+1) With 1 Server and 1 Client:
+------------------------------
+Total time the simulator was run: 10 minutes
+Total Number of Users: 20000
+
+Below are the readings taken during the last 50 seconds in the 10th minute:
+
+Total POST requests, Total GET requests, Total POST requests per second, Total GET requests per second
+------------------------------------------------------------------------------------------------------
+5744925,5336030,10594,9520
+5755221,5345550,10296,9520
+5765339,5355250,10118,9700
+5775480,5364727,10141,9477
+5785598,5374204,10118,9477
+5796332,5383560,10734,9356
+5806416,5393060,10084,9500
+5816611,5402600,10195,9540
+5826746,5412120,10135,9520
+5836878,5421640,10132,9520
+5847606,5431160,10728,9520
+5857733,5440680,10127,9520
+5867873,5450200,10140,9520
+5878011,5459720,10138,9520
+5888155,5469240,10144,9520
+5898903,5478760,10748,9520
+5909036,5488280,10133,9520
+5919145,5497800,10109,9520
+5929206,5507099,10061,9299
+5939410,5516840,10204,9741
+5950166,5526360,10756,9520
+5960297,5535880,10131,9520
+5970425,5545400,10128,9520
+5980484,5554737,10059,9337
+5990691,5564440,10207,9703
+6001434,5573960,10743,9520
+6011569,5583480,10135,9520
+6021688,5593000,10119,9520
+6031819,5602520,10131,9520
+6041875,5611870,10056,9350
+6052683,5621560,10808,9690
+6062811,5631080,10128,9520
+6072873,5640600,10062,9520
+6083054,5650120,10181,9520
+6093164,5659640,10110,9520
+6103907,5669160,10743,9520
+6114025,5678680,10118,9520
+6124155,5688200,10130,9520
+6134275,5697720,10120,9520
+6144403,5707240,10128,9520
+6155125,5716760,10722,9520
+6165271,5726280,10146,9520
+6175385,5735800,10114,9520
+6185439,5745225,10054,9425
+6195570,5754840,10131,9615
+6206300,5764353,10730,9513
+6216423,5773878,10123,9525
+6226547,5783286,10124,9408
+6236370,5792343,9823,9057
+6246795,5802162,10425,9819
+
+2) With 1 Server and 2 Clients:
+-------------------------------
+Total time the simulator was run: 10 minutes
+Total Number of Users: 20000
+Number of Users per client: 10000
+
+Below are the readings taken during the last 42 seconds in the 10th minute:
+
+Total POST requests, Total GET requests, Total POST requests per second, Total GET requests per second
+------------------------------------------------------------------------------------------------------
+11114258,10328749,20079,18976
+11134223,10347507,19965,18758
+11155168,10366930,20945,19423
+11175380,10385970,20212,19040
+11196587,10405057,21207,19087
+11216745,10423852,20158,18795
+11236709,10442771,19964,18919
+11257151,10461862,20442,19091
+11277694,10481170,20543,19308
+11299810,10500910,22116,19740
+11320231,10519950,20421,19040
+11340572,10538990,20341,19040
+11359535,10557040,18963,18050
+11380966,10577070,21431,20030
+11402399,10596110,21433,19040
+11422554,10615157,20155,19047
+11442320,10633591,19766,18434
+11463283,10653473,20963,19882
+11483528,10672479,20245,19006
+11503805,10690422,20277,17943
+11524900,10710449,21095,20027
+11545320,10729580,20420,19131
+11565475,10748533,20155,18953
+11587516,10768131,22041,19598
+11607860,10787200,20344,19069
+11627604,10805825,19744,18625
+11648061,10825026,20457,19201
+11668560,10844255,20499,19229
+11689652,10862877,21092,18622
+11710505,10882619,20853,19742
+11729963,10900723,19458,18104
+11750349,10920000,20386,19277
+11771430,10939751,21081,19751
+11792030,10958150,20600,18399
+11813130,10977835,21100,19685
+11832080,10995738,18950,17903
+11852940,11015465,20860,19727
+11873728,11034874,20788,19409
+11895193,11054067,21465,19193
+11915011,11072702,19818,18635
+11935745,11092124,20734,19422
+11956003,11111148,20258,19024
+
+
+Instructions for building and running the program in Linux environment:
+-----------------------------------------------------------------------
+
+Set up the required folder structure:
+-------------------------------------
+a) In the Linux environment, create a folder called Project4.
+b) Download Akka 2.3.6 distribution for Scala 2.11. Unzip it and copy the contents from "akka_2.11-2.3.6\lib" folder to Project4 folder.
+c) Download scala-2.11.2 and extract it into Project4 folder.
+d) Place project4server.scala and project4client.scala files in Project4 folder.
+e) Place application.conf file in "Project4\scala-2.11.2\bin" folder. 
+ 
+To build project4server.scala:
+------------------------------
+a) Open command prompt.
+b) Navigate to "Project4\scala-2.11.2\bin" path and issue the following command:
+./scalac -cp "../../akka/*:../../scala-library-2.11.2.jar:." ../../project4server.scala
+
+To build project4client.scala:
+------------------------------
+a) Open command prompt.
+b) Navigate to "Project4\scala-2.11.2\bin" path and issue the following command:
+./scalac -cp "../../akka/*:../../scala-library-2.11.2.jar:." ../../project4client.scala
+
+To run project4server.scala as server:
+--------------------------------------
+a) Change the hostname in application.conf file to the server's IP Address. Leave the port number as it is.
+b) Open command prompt.
+c) Navigate to "Project4\scala-2.11.2\bin" path and issue the following command. 
+./scala -cp "../../akka/*:../../scala-library-2.11.2.jar:." project4server <NumUsersPerClient> <NumClients>
+
+To run project4client.scala as client:
+--------------------------------------
+a) Change the hostname in application.conf file to the clients's IP Address and change the port number to 0.
+b) Open command prompt.
+c) Navigate to "Project4\scala-2.11.2\bin" path and issue the following command:
+./scala -cp "../../akka/*:../../scala-library-2.11.2.jar:." project4client <ServerIpAddress> <ClientNum>

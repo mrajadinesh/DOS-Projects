@@ -1,0 +1,69 @@
+COP5615 Distributed Operating System Principles - Fall 2014
+------------------------------------------------------------
+
+
+Project 3 - README
+------------------
+
+
+1) Team members:
+   -------------
+   
+Group Member 1:
+---------------
+Name: Vineeta Chelamkuri
+UFID: 05149111
+Email ID: vchelamkuri@ufl.edu
+
+Group Member 2:
+---------------
+Name: RajaDinesh Kumar Murugesan
+UFID: 41181658
+Email ID: mrajadinesh@ufl.edu
+
+
+2) What is working?
+   ----------------
+   
+The project implements the Pastry Routing Algorithm. Initially it builds the entire peer-to-peer network by joining each node to the network and by generating it's corresponding Leaf Set, Routing Table and Neighborhood Set.
+
+The Master actor initiates the routing requests (numRequests) for all the nodes in the network (numNodes). After each request is routed to the destination, the total number of hops for that particular request are sent to the Master actor. The Master keeps track of the total number of hops that are made to route the messages and the total number of requests completed. Once all the requests (i.e. numNodes*numRequests) have been routed to their corresponding destinations, the Master actor prints the average number of hops per request and then shuts down the system.
+
+
+3) What is the largest network you managed to deal with?
+   -----------------------------------------------------
+
+The largest network that we managed to deal with is 60000 nodes.
+
+
+4) Instructions for building and running the program in Linux environment:
+--------------------------------------------------------------------------
+
+Set up the required folder structure:
+-------------------------------------
+a) In the Linux environment, create a folder called Project3.
+b) Download Akka 2.3.6 distribution for Scala 2.11. Unzip it and copy the contents from "akka_2.11-2.3.6\lib" folder to Project3 folder.
+c) Download scala-2.11.2 and extract it into Project3 folder.
+d) Place project3.scala file in Project3 folder.
+e) Place application.conf file in "Project3\scala-2.11.2\bin" folder. 
+ 
+To build project3.scala:
+------------------------
+a) Open command prompt.
+b) Navigate to "Project3\scala-2.11.2\bin" path and issue the following command:
+./scalac -cp "../../akka/*:../../scala-library-2.11.2.jar:." ../../project3.scala
+
+To run project3.scala:
+--------------------------------
+a) Open command prompt.
+b) Navigate to "Project3\scala-2.11.2\bin" path and issue the following command. 
+./scala -cp "../../akka/*:../../scala-library-2.11.2.jar:." project3 numNodes numRequests
+
+Where numNodes is the number of nodes in the network, numRequests is the number of requests to be sent by each peer.
+
+
+
+
+
+
+
